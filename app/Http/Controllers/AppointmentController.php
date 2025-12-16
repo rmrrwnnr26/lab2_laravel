@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Service;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -12,13 +13,20 @@ class AppointmentController extends Controller
     public function index(Request $request)
     {
         $perpage = $request->perpage ?? 2;
+        // echo $request->perpage;
         return view('appointments', [
             'appointments' => Appointment::paginate($perpage)->withQueryString()
+            // 'appointments' => Appointment::paginate($perpage)
         ]);
     }
 
     public function create()
     {
+        if (!Gate::allows('create-appointment')) {
+            return redirect('/error')
+                ->with('message', 'У вас нет разрешения на создание новых записей');
+        }
+
         return view('appointments_create', [
             'users' => User::all(),
             'services' => Service::all()
@@ -75,9 +83,17 @@ class AppointmentController extends Controller
     public function destroy(string $id)
     {
         $appointment = Appointment::findOrFail($id);
+
+        if (! Gate::allows('destroy-appointment', $appointment)){
+            return redirect('/error')
+            ->with('message',
+                'У вас нет разрешения на удаление записи номер ' . $id);
+        }
+
         $appointment->delete();
 
         return redirect()->route('appointments.index')
                          ->with('success', 'Запись успешно удалена!');
+
     }
 }
