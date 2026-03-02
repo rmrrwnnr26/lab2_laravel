@@ -80,7 +80,7 @@
             align-items: center;
             margin-top: 30px;
             margin-top: 50px;
-            margin-bottom: 30px
+            margin-bottom: 30px; /* Отступ снизу */
         }
 
         .pagination {
@@ -134,6 +134,12 @@
     </style>
     <div class="container">
         <h2>Список записей на услуги</h2>
+        
+        @if(session('success'))
+            <div style="background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin:20px auto; max-width:1000px; text-align:center;">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <div class="table-wrapper">
             @if($appointments->isEmpty())

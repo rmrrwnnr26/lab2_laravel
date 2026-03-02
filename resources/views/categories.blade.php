@@ -11,7 +11,6 @@
 </head>
 <body>
     <h2>Список категорий:</h2>
-
     <table border="1">
         <thead>
             <tr>
