@@ -68,6 +68,7 @@
     </style>
     <div class="body">
         <div class="main">
+
             <!-- <img src="/public/images/main.svg" alt=""> -->
             <h1>RMRNAI1S</h1>
             <h5>МАСТЕР МАНИКЮРА</h5>

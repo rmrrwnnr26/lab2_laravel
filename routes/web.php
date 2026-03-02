@@ -26,8 +26,8 @@ Route::get('/service/{id}', [ServiceController::class, 'show']);
 Route::get('/service1/{id}', [ServiceUserController::class, 'show'])->name('service_show');
 Route::get('/user/{id}', [UserController::class, 'show'])->name('user_show');
 
-Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
-Route::get('/appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
+Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index')->middleware('auth');
+Route::get('/appointments/create', [AppointmentController::class, 'create'])->name('appointments.create')->middleware('auth');
 Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store')->middleware('auth');
 Route::get('/appointments/{appointment}', [AppointmentController::class, 'show'])->name('appointments.show')->middleware('auth');
 Route::get('/appointments/{appointment}/edit', [AppointmentController::class, 'edit'])->name('appointments.edit')->middleware('auth');

@@ -126,29 +126,29 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url('appointments') }}">Все записи</a></li>
                             <li><a class="dropdown-item" href="{{ url('appointments/create') }}">Добавить запись</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
+
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('service') }}">Услуги</a></li>
                 </ul>
                 
                 @if(!Auth::user())
-                <div class="d-flex">
-                    <a class="btn btn-outline-success" href="{{ url('login') }}">Войти</a>
-                </div>
-                @else
-                <ul class="navbar-nav d-flex align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link active d-flex align-items-center" href="#">
-                            <i class="fa fa-user user-icon"></i>
-                            {{ Auth::user()->name }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-logout ms-2" href="{{ url('logout') }}">Выйти</a>
-                    </li>
-                </ul>
-            @endif
+                    <div class="d-flex">
+                        <a class="btn btn-outline-success" href="{{ route('login', ['redirect' => url()->current()]) }}">Войти</a>
+                    </div>
+                    @else
+                    <ul class="navbar-nav d-flex align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link active d-flex align-items-center" href="#">
+                                <i class="fa fa-user user-icon"></i>
+                                {{ Auth::user()->name }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-logout ms-2" href="{{ url('logout') }}">Выйти</a>
+                        </li>
+                    </ul>
+                @endif
             </div>
         </div>
     </nav>

@@ -44,12 +44,6 @@
     }
 </style>
 
-{{-- БЛОК ДЛЯ SUCCESS-СООБЩЕНИЙ --}}
-@if(session('success'))
-    <div class="success-message" style="background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin:20px auto; max-width:1000px; text-align:center;">
-        {{ session('success') }}
-    </div>
-@endif
 
 @if(auth()->check())
     <h2>Здравствуйте, {{ auth()->user()->name }}</h2>
@@ -59,6 +53,7 @@
     <form method="post" action="{{ route('auth') }}">
     @csrf
     <div class="form">
+        <input type="hidden" name="redirect" value= {{ request('redirect') }}/>
         <div class="email">
             <label>E-mail</label>
             <input class="item @error('email') is-invalid @enderror" type="text" name="email" value="{{ old('email') }}"/>
@@ -77,12 +72,11 @@
         <br>
         <input class="button" type="submit">
         
-        {{-- БЛОК ДЛЯ ОШИБКИ АУТЕНТИФИКАЦИИ --}}
+        <!-- ошибка аунтефикации -->
         @if(session('error'))
             <div class="is-invalid">{{ session('error') }}</div>
         @endif
         
-        {{-- Для ошибок валидации из withErrors() --}}
         @if($errors->has('error'))
             <div class="is-invalid">{{ $errors->first('error') }}</div>
         @endif

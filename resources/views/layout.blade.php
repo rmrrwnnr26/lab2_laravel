@@ -35,38 +35,16 @@
             font-size: medium;
             margin-bottom: 30px;
         }
-        /* .flash-messages {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            z-index: 1050;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .flash-message {
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            margin-bottom: 10px;
-            animation: slideIn 0.3s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        } */
-
     </style>
 </head>
 <body class="d-flex flex-column h-100">
     @include('navbar')
+
+    @if(session('success'))
+        <div style="background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin:20px auto; max-width:1000px; text-align:center;">
+            {{ session('success') }}
+        </div>
+    @endif
 
     @yield('content')
 </body>

@@ -11,6 +11,7 @@
 </head>
 <body>
     <h2>{{$category ? "Список товаров категории ".$category->name : 'Неверный ID категории' }}</h2>
+
     @if($category)
     <table border="1">
         <tr>

@@ -8,24 +8,29 @@ use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
-    public function authenticate(Request $request)
+        public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
         
+        if ($request->filled('redirect')) {
+            session()->put('url.intended', $request->redirect);
+        }
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
                 
-            return redirect()->intended('/')
-                         ->with('success', 'Вы успешно вошли в систему!');
+            return redirect()->intended()->with('success', 'Вы успешно вошли в систему!');
+            
         }
          
         return back()->withErrors([
             'error' => 'Неверный логин или пароль.',
         ])->onlyInput('email');
     }
+
 
     public function login(Request $request)
     {
