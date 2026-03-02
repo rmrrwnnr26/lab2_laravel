@@ -14,7 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/hello', function () {
-    return view('hello', ['title' => 'Hello world!']);
+    return view('hello');
 });
 
 Route::get('/category', [CategoryController::class, 'index']);
@@ -35,12 +35,10 @@ Route::put('/appointments/{appointment}', [AppointmentController::class, 'update
 Route::patch('/appointments/{appointment}', [AppointmentController::class, 'update'])->middleware('auth');
 Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy'])->name('appointments.destroy');
 
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout']);
-Route::get('/auth', [LoginController::class, 'authenticate']);
-Route::post('/auth', [LoginController::class, 'authenticate']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/auth', [LoginController::class, 'authenticate'])->name('auth');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/auth', [LoginController::class, 'login'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', function () {
     return redirect()->route('appointments.index');
