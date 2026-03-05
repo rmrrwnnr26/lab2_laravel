@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Service Details</title>
-    <style>
-        table { border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
-</head>
+@extends('layout')
 <body>
     <h2>{{ $service ? "Информация об услуге: {$service->name}" : 'Услуга не найдена' }}</h2>
     

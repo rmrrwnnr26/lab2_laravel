@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Запись #{{ $appointment->id }}</title>
-    <style>
-        .info { max-width: 500px; margin: 20px; padding: 20px; border: 1px solid #ddd; }
-        .info p { margin: 10px 0; }
-    </style>
-</head>
-<body>
+@extends('layout')
     <h2>Запись #{{ $appointment->id }}</h2>
     
     <div class="info">
