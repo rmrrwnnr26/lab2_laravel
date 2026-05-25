@@ -33,3 +33,9 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     });
     Route::get('/logout', [AuthController::class, 'logout']);
 });
+
+
+Route::get('/categories_total', [CategoryControllerApi::class, 'total']);
+Route::get('/categories', [CategoryControllerApi::class, 'index']);
+Route::get('/services_total', [ServiceControllerApi::class, 'total']);
+Route::get('/services', [ServiceControllerApi::class, 'index']);

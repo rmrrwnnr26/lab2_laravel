@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Details</title>
+@extends('layout')
+@section('title', 'Детали клиента')
+@section('content')
+
     <style>
         table { border-collapse: collapse; margin: 20px 0; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
     </style>
-</head>
-<body>
+
     <h2>{{ $user ? "Пользователь: {$user->name}" : 'Пользователь не найден' }}</h2>
     
     @if($user)
+    <div class="user">
         <div>
-            <h3>Основная информация:</h3>
+            <h4>Основная информация:</h4>
             <p><strong>ID:</strong> {{ $user->id }}</p>
             <p><strong>Имя:</strong> {{ $user->name }}</p>
             <p><strong>Телефон:</strong> {{ $user->phone }}</p>
         </div>
 
         <div>
-            <h3>Записи пользователя на услуги:</h3>
+            <h4>Записи пользователя на услуги:</h4>
             @if($user->services->count() > 0)
                 <table>
                     <tr>
@@ -47,6 +46,6 @@
                 <p>У пользователя нет записей на услуги</p>
             @endif
         </div>
+    </div>
+        
     @endif
-</body>
-</html>

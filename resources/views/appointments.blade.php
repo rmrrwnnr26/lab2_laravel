@@ -24,7 +24,7 @@
         }
 
         th {
-            background-color: #EBC9E5;
+            background-color: #9B9A98;
             padding: 15px;
             text-align: left;
             color: #333;
@@ -109,15 +109,15 @@
         }
 
         .pagination li a:hover {
-            background: #EBC9E5;
+            background: #9B9A98;
             color: #333;
-            border-color: #EBC9E5;
+            border-color: #9B9A98;
         }
 
         .pagination .active span {
-            background: #EBC9E5;
+            background: #9B9A98;
             color: #333;
-            border-color: #EBC9E5;
+            border-color: #9B9A98;
             font-weight: bold;
         }
 

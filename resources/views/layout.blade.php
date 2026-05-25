@@ -11,8 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Bruno+Ace&display=swap" rel="stylesheet">
     <title>@yield('title')</title>
     <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         body {
-            background-color: #efececff;
+            background-image: url("/images/main.svg");
+            width: 100%;
             padding-top: 100px;
         }
 
@@ -27,13 +34,67 @@
         }
 
         .button {
-            background-color: #D3A9CC;
+            background-color: #9B9A98;
             height: 40px;
             width: 500px;
             border-radius: 20px;
             margin-top: 20px;
             font-size: medium;
             margin-bottom: 30px;
+        }
+
+        .view_more {
+                font-family: "Inter";
+                font-size: 20px;
+                border-style: solid;
+                border-color: #9B9A98;
+                color: #9B9A98;
+                border-radius: 100px;
+                font-weight: 500;
+                padding: 21px;
+                transition: all 0.3s ease;
+                text-decoration: none;
+            }
+
+        .view_more:hover {
+            background-color: #BCBAB4;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .networks {
+            margin-bottom: 70px;
+
+            .btn_links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 60px;
+
+                
+            }
+        }
+
+        
+
+        .link {
+            font-family: "Bruno Ace", sans-serif;
+            font-size: 30px;
+            border: 2px solid #9B9A98;
+            color: #9B9A98;
+            border-radius: 100px;
+            font-weight: 500;
+            padding: 21px;
+            transition: all 0.3s ease;
+            width: 417px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            background-color: #BCBAB4;
+            color: white;
+            transform: translateY(-1px);
         }
     </style>
 </head>

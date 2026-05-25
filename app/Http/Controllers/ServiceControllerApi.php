@@ -10,9 +10,16 @@ class ServiceControllerApi extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+     public function index(Request $request)
     {
-        return response(Service::all());
+        return response(Service::limit($request->perpage ?? 5)
+        ->offset(($request->perpage ?? 5) * ($request->page ?? 0))
+        ->get());
+    }
+
+    public function total()
+    {
+        return response(Service::all()->count());
     }
 
     /**

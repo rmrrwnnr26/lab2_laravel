@@ -47,3 +47,7 @@ Route::get('/', function () {
 Route::get('/error', function() {
     return view('error', ['message' => session('message')]);
 });
+
+Route::get('/works', function () {
+    return view('work');
+});

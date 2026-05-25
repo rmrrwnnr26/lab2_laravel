@@ -24,7 +24,7 @@
         }
 
         th {
-            background-color: #EBC9E5;
+            background-color: #9B9A98;
             padding: 15px;
             text-align: left;
             color: #333;
@@ -40,7 +40,7 @@
         }
     </style>
     <div class="container">
-        <h2>Список услуг:</h2>
+        <h2>СПИСОК УСЛУГ:</h2>
         <div class="table-wrapper"> 
             <table>
                 <thead>

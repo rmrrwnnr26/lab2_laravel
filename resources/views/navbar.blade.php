@@ -9,7 +9,9 @@
         .navbar {
             padding-left: 50px;
             padding-right: 50px;
-            background-color: #EADAE7;
+            background-color: #fff;
+            border-style: solid;
+            border-color: #9B9A98;
             transition: all 0.3s ease;
         }
 
@@ -33,7 +35,7 @@
         }
 
         .nav-link:hover {
-            color: var(--primary-color) !important;
+            color: #BCBAB4 !important;
         }
 
         .dropdown-toggle::after {
@@ -54,7 +56,7 @@
         }
 
         .dropdown-item:hover {
-            background-color: var(--primary-color);
+            background-color: #BCBAB4;
             color: white !important;
             border-radius: 6px;
         }
@@ -71,21 +73,21 @@
         }
 
         .btn-outline-success {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            border-color: #9B9A98;
+            color: #9B9A98;
             border-radius: 20px;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .btn-outline-success:hover {
-            background-color: var(--primary-color);
+            background-color: #BCBAB4;
             color: white;
             transform: translateY(-1px);
         }
 
         .btn-logout {
-            background-color: var(--primary-color);
+            background-color: #9B9A98;
             color: white;
             border-radius: 20px;
             font-weight: 500;
@@ -93,7 +95,7 @@
         }
 
         .btn-logout:hover {
-            background-color: var(--primary-hover);
+            background-color: #BCBAB4;
             transform: translateY(-1px);
         }
 
@@ -130,9 +132,13 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('service') }}">Услуги</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('works') }}">Мои работы</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-success" href="https://mastapp.online/m/rmrrwnnr">Запись</a></li>
                 </ul>
                 
-                @if(!Auth::user())
+                
+            </div>
+            @if(!Auth::user())
                     <div class="d-flex">
                         <a class="btn btn-outline-success" href="{{ route('login', ['redirect' => url()->current()]) }}">Войти</a>
                     </div>
@@ -149,7 +155,6 @@
                         </li>
                     </ul>
                 @endif
-            </div>
         </div>
     </nav>
 </header>
